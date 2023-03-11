@@ -1,11 +1,63 @@
 server:
   port: 8080
 spring:
+  #neo4j数据源
   data:
     neo4j:
       uri: bolt://127.0.0.1:7687
       username: neo4j
       password: root
+  #mysql数据源
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/water_area_knowledge?useSSL=false&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+#kettle
+kettle:
+    script:
+      path: D:/Kettle/code
+
+#xxl-job
+  # no web
+  #spring.main.web-environment=false
+
+  # log config
+#logging:
+    #config: classpath:logback.xml
+#打印neo4j生成的Cypher
+logging:
+  level:
+    org:
+      neo4j:
+        ogm:
+          drivers:
+            bolt:
+              request:
+                BoltRequest: DEBUG
+
+### xxl-job admin address list, such as "http://address" or "http://address01,http://address02"
+xxl:
+  job:
+    admin:
+      addresses: http://127.0.0.1:8081/xxl-job-admin
+  ### xxl-job, access token
+    accessToken: default_token
+
+  ### xxl-job executor appname
+    executor:
+      appname: xxl-job-executor
+  ### xxl-job executor registry-address: default use address to registry , otherwise use ip:port if address is null
+      address:
+  ### xxl-job executor server-info
+      ip:
+      port: 8181
+  ### xxl-job executor log-path
+      logpath: /data/applogs/xxl-job/jobhandler
+  ### xxl-job executor log-retention-days
+      logretentiondays: 30
+
+
 
 
 

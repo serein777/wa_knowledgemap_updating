@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+@Service
 public interface NodeService {
     public Node save(Node node);
     public List<Node> getAll();
