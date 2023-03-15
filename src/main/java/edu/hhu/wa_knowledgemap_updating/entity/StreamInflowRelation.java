@@ -5,18 +5,18 @@ import org.neo4j.ogm.annotation.*;
 
 @Data
 @RelationshipEntity( type="Relation")
-public class Relation {
+public class StreamInflowRelation {
     @Id
     @GeneratedValue
     public  Long id;
 
     @StartNode
-    public Node startNode;
+    public StreamNode startNode;
 
     @EndNode
-    public  Node endNode;
+    public StreamNode endNode;
 
-    @Property
+    @Property(name = "relation")
     public String relation;
 
 

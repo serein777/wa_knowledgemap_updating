@@ -21,8 +21,8 @@ public class ReservoirJob {
              return  ReturnT.SUCCESS;
          }
 
-    @XxlJob(value = "getReservoirUpdateData")
-    public ReturnT  getReservoirUpdateData(){
+    @XxlJob(value = "getReservoirIncrementData")
+    public ReturnT  getReservoirIncrementData(){
         System.out.println("get reservoir update data task start...");
         reservoirKettle.updateNewInfo("get_reservoir_update_data");
         return  ReturnT.SUCCESS;

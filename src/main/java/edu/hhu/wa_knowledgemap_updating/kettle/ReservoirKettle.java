@@ -1,9 +1,8 @@
 package edu.hhu.wa_knowledgemap_updating.kettle;
 
-import edu.hhu.wa_knowledgemap_updating.dto.ReservoirUpdateDto;
+import edu.hhu.wa_knowledgemap_updating.dto.ReservoirKettleDto;
 import edu.hhu.wa_knowledgemap_updating.entity.ReservoirNode;
 import edu.hhu.wa_knowledgemap_updating.service.ReservoirService;
-import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.pentaho.di.core.Result;
 import org.pentaho.di.core.RowMetaAndData;
@@ -12,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.sql.Date;
 import java.util.List;
 
 /**
@@ -74,14 +72,14 @@ public class ReservoirKettle {
         List<RowMetaAndData> rows = result.getRows(); //获取数据
         log.info("row size {}",rows.size());
         if(rows.size()==0) return;
-        ReservoirUpdateDto[] reservoirUpdateDtos=new ReservoirUpdateDto[rows.size()];
+        ReservoirKettleDto[] reservoirUpdateDtos=new ReservoirKettleDto[rows.size()];
         int idx=0;
         log.info("水坝增量信息如下:");
         for (RowMetaAndData row : rows) {
             RowMetaInterface rowMeta = row.getRowMeta(); //获取列的元数据信息
             String[] fieldNames = rowMeta.getFieldNames();
             Object[] datas = row.getData();
-            reservoirUpdateDtos[idx] = new ReservoirUpdateDto();
+            reservoirUpdateDtos[idx] = new ReservoirKettleDto();
             for (int i = 0; i < fieldNames.length; i++) {
                 System.out.println(fieldNames[i] + "=" + datas[i]);
                 if (fieldNames[i].equals("name")) {
@@ -99,7 +97,7 @@ public class ReservoirKettle {
             idx++;
         }
         log.info("开始更新到知识图谱中:");
-        for (ReservoirUpdateDto node : reservoirUpdateDtos) {
+        for (ReservoirKettleDto node : reservoirUpdateDtos) {
                 reservoirService.updateIncrementalInfo(node);
         }
     }

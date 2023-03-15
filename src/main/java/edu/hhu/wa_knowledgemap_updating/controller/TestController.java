@@ -17,8 +17,7 @@ public class TestController {
     @ResponseBody
     @RequestMapping("/testktr")
     public  String  test(){
-       kettleService.runKtr("reservior",null,null);
-     //   kettleService.runKjb("stream",null,null);
+       kettleService.runKtr("reservior",null,null);     //   kettleService.runKjb("stream",null,null);
         return "hello kettle";
     }
     @ResponseBody
