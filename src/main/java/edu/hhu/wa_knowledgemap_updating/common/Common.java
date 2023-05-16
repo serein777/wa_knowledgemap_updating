@@ -10,7 +10,7 @@ import java.util.Set;
 @Component
 @Data
 public class Common {
-
+    public static final String DATE_FORMAT= "yyyy-MM-dd HH:mm:ss";
     Set<String> streamTypeSet;
 
 

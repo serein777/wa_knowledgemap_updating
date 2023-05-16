@@ -14,4 +14,17 @@ public class StreamKettleDto {
     private Integer length;
     private String lastUpdateTime;
     private String method;
+    @Override
+    public   String toString(){
+        StringBuilder sb=new StringBuilder();
+        sb.append("{");
+        sb.append("id:").append(this.getMysqlId()).append(",");
+        sb.append("name:").append(this.name).append(",");
+        sb.append("type:").append(this.type).append(",");
+        sb.append("level:").append(this.level).append(",");
+        sb.append("length:").append(this.length).append(",");
+        sb.append("updateTime:").append(this.getLastUpdateTime());
+        sb.append("}");
+        return sb.toString();
+    }
 }

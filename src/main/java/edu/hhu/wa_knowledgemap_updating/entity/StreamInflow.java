@@ -3,6 +3,7 @@ package edu.hhu.wa_knowledgemap_updating.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 
 @Entity
 @Table(name = "wa_stream_inflow")
@@ -10,9 +11,13 @@ import javax.persistence.*;
 public class StreamInflow {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  long  id;
-    private  long inflowStartId;
-    private  long inflowEndId;
+    private  Long id;
+    private  Long inflowStartId;
+    private  Long inflowEndId;
     private  String inflowStartName;
     private  String inflowEndName;
+    @Column(name = "create_time")
+    private Timestamp createTime;
+    @Column(name = "update_time")
+    private Timestamp updateTime;
 }

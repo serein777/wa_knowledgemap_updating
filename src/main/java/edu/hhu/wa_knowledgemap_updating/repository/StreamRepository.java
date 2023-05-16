@@ -14,4 +14,9 @@ public interface StreamRepository extends  Neo4jRepository<StreamNode, Long> {
 
     @Query("match (r:Stream)  return r")
     List<StreamNode> getAll();
+@Query("match (r:Stream) where r.name =~'.*{keyword}.*'  return r")
+    List<StreamNode> selectByKeyWord(@Param("keyword") String keyWord);
+    @Query("Match (r:Stream) where r.mysql_id={mysql_id} return r ")
+   public  StreamNode selectByMysqlId(@Param("mysql_id") Long mysqlId);
+
 }

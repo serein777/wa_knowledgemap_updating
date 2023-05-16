@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 public class StreamDto {
-    private Long id;
+    private long id;
     private String name;
     private String type;
     private Integer level;

@@ -15,6 +15,8 @@ public class StreamInflowRelation {
 
     @EndNode
     public StreamNode endNode;
+    @Property( name ="mysql_id")
+    public Long mysqlId;
 
     @Property(name = "relation")
     public String relation;

@@ -3,6 +3,7 @@ package edu.hhu.wa_knowledgemap_updating.kettle;
 import edu.hhu.wa_knowledgemap_updating.dto.ReservoirKettleDto;
 import edu.hhu.wa_knowledgemap_updating.entity.ReservoirNode;
 import edu.hhu.wa_knowledgemap_updating.service.ReservoirService;
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.pentaho.di.core.Result;
 import org.pentaho.di.core.RowMetaAndData;
@@ -92,6 +93,14 @@ public class ReservoirKettle {
                     reservoirUpdateDtos[idx].setMethod((String) datas[i]);
                 }else if (fieldNames[i].equals("old_id")) {
                     reservoirUpdateDtos[idx].setMysqlId((Long) datas[i]);
+                }else if(fieldNames[i].equals("longitude")){
+                    reservoirUpdateDtos[idx].setLongitude(((BigDecimal) datas[i]).doubleValue());
+                }
+                else if(fieldNames[i].equals("latitude")){
+                    reservoirUpdateDtos[idx].setLatitude(((BigDecimal) datas[i]).doubleValue());
+                }
+                else if(fieldNames[i].equals("elevation")){
+                    reservoirUpdateDtos[idx].setElevation(((Long) datas[i]).intValue());
                 }
             }
             idx++;

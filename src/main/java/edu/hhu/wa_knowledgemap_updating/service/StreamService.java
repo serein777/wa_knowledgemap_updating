@@ -13,7 +13,7 @@ import java.util.List;
 public interface StreamService {
     public boolean updateIncrementalInfo(StreamKettleDto streamDto);
 
-    public List<StreamNode> getAllNode();
+    public  RespBean getAllNode();
 
     public RespBean list();
     public RespBean selectByName(String  name);
@@ -22,4 +22,7 @@ public interface StreamService {
     public RespBean create(StreamDto streamDto);
 
     StreamNode findNodeByName(String name);
+
+    RespBean selectByKeyWord(String keyWord);
+    RespBean selectNodeByKeyWord(String keyWord);
 }

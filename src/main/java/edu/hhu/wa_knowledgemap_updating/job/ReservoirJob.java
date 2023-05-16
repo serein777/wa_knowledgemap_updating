@@ -17,14 +17,14 @@ public class ReservoirJob {
     @XxlJob(value = "getMaxWaterLevel")
     public ReturnT  getMaxWaterLevel(){
              System.out.println("get max water level task start...");
-            reservoirKettle.getMaxWaterLevel("job1");
+            reservoirKettle.getMaxWaterLevel("get_reservoir_max_water_level");
              return  ReturnT.SUCCESS;
          }
 
     @XxlJob(value = "getReservoirIncrementData")
     public ReturnT  getReservoirIncrementData(){
         System.out.println("get reservoir update data task start...");
-        reservoirKettle.updateNewInfo("get_reservoir_update_data");
+        reservoirKettle.updateNewInfo("get_reservoir_increment_data");
         return  ReturnT.SUCCESS;
     }
 }

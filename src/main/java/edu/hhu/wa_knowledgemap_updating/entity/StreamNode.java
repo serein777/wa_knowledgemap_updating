@@ -12,7 +12,7 @@ public class StreamNode {
     @GeneratedValue
     private Long id;
     @Property( name ="mysql_id")
-    private Long mysqlId;
+    private long mysqlId;
     @Property( name ="name")
     private String name;
     @Property( name ="type")

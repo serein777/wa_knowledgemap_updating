@@ -48,7 +48,10 @@ public class StreamInflowKettle {
                     streamInflowDtos[idx].setInflowEndName((String) datas[i]);
                 }else if (fieldNames[i].equals("method")) {
                     streamInflowDtos[idx].setMethod((String) datas[i]);
+                } else if (fieldNames[i].equals("old_id")) {
+                    streamInflowDtos[idx].setMysqlId((Long) datas[i]);
                 }
+
             }
             idx++;
         }
